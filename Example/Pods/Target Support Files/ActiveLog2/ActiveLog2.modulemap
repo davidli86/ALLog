@@ -1,0 +1,6 @@
+framework module ActiveLog2 {
+  umbrella header "ActiveLog2-umbrella.h"
+
+  export *
+  module * { export * }
+}
