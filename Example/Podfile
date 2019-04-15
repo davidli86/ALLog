@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'ActiveLog2_Example' do
+  pod 'ActiveLog2', :path => '../'
+
+  target 'ActiveLog2_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
