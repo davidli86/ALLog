@@ -6,12 +6,14 @@
 //
 
 #import "ALLog.h"
+#import "ALLogAPIManager.h"
 
 static ALLog *_instance;
 
-@interface ALLog () {
-    ALLogLevel _logLevel;
+@interface ALLog ()<ALLogAPIManagerProtocol> {
     NSMutableArray *_loggers;
+    ALLogAPIManager *_apiManager;
+    NSUInteger _remainNetworkRetryTimes;
 }
 
 @end
@@ -26,8 +28,37 @@ static ALLog *_instance;
     return _instance;
 }
 
-- (void)configWithLogLevel:(ALLogLevel)logLevel {
+- (instancetype)init {
+    if (self = [super init]) {
+        _logLevel = ALLogLevelOff;
+        _networkRetryTimes = 2;
+        _remainNetworkRetryTimes = _networkRetryTimes;
+        _networkRetryDuration = 5.0;
+    }
+    return self;
+}
+
+- (void)configFromBaseUrl:(NSString *)baseUrl appName:(NSString *)appName deviceId:(NSString *)deviceId {
+    if (_baseUrl == nil || appName == nil || deviceId == nil) {
+        NSLog(@"Active Log Config Error: parameter shouldn't be nil!");
+        return;
+    }
+    _baseUrl = baseUrl;
+    _appName = appName;
+    _deviceId = deviceId;
+    _apiManager = [[ALLogAPIManager alloc] initWithBaseUrl:_baseUrl];
+    _apiManager.delegate = self;
+    [_apiManager requestLogLevelWithAppName:_appName deviceId:_deviceId];
+}
+
+- (void)configWithLogLevel:(ALLogLevel)logLevel appName:(NSString *)appName deviceId:(NSString *)deviceId{
+    if (appName == nil || deviceId == nil) {
+        NSLog(@"Active Log Config Error: parameter shouldn't be nil!");
+        return;
+    }
     _logLevel = logLevel;
+    _appName = appName;
+    _deviceId = deviceId;
 }
 
 - (void)addLogger:(id<ALLogger>)logger {
@@ -41,7 +72,7 @@ static ALLog *_instance;
 }
 
 - (void)logMessage:(NSString *)message component:(nonnull NSString *)component type:(ALLogType)logType function:(nonnull NSString *)function{
-    if (message == nil || logType & _logLevel == 0) {
+    if (message == nil || (logType & _logLevel) == 0) {
         return;
     }
     NSString *logTypeString = kALLogTypeErrorConst;
@@ -68,5 +99,32 @@ static ALLog *_instance;
         [logger writeLogEntity:entity];
     }
 }
+
+-(void)setNetworkRetryDuration:(float)networkRetryDuration {
+    if (networkRetryDuration < 0) {
+        _networkRetryDuration = 0;
+    } else {
+        _networkRetryDuration = networkRetryDuration;
+        _remainNetworkRetryTimes = _networkRetryTimes;
+    }
+}
+
+#pragma mark - ALLogAPIManagerProtocol
+
+- (void)logAPIManager:(ALLogAPIManager *)apiManager didGetLogLevel:(ALLogLevel)logLevel withError:(NSError *)error {
+    if (error) {
+        NSLog(@"%@", error);
+        if (_remainNetworkRetryTimes > 0) {
+            _remainNetworkRetryTimes--;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, _networkRetryDuration * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [self->_apiManager requestLogLevelWithAppName:self->_appName deviceId:self->_deviceId];
+            });
+        }
+    } else {
+        _logLevel = logLevel;
+    }
+}
+
 
 @end

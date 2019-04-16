@@ -47,6 +47,12 @@
 		777EB5D6226492E400E6883B /* ALLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 777EB5CA226492E400E6883B /* ALLogger.h */; };
 		777EB5D7226492E400E6883B /* ALFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 777EB5CB226492E400E6883B /* ALFileLogger.h */; };
 		777EB5D8226492E400E6883B /* ALLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 777EB5CC226492E400E6883B /* ALLog.m */; };
+		777EB5DB22656B7100E6883B /* ALBaseAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 777EB5D922656B7100E6883B /* ALBaseAPIManager.h */; };
+		777EB5DC22656B7100E6883B /* ALBaseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 777EB5DA22656B7100E6883B /* ALBaseAPIManager.m */; };
+		777EB5DF22657CA500E6883B /* ALLogAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 777EB5DD22657CA500E6883B /* ALLogAPIManager.h */; };
+		777EB5E022657CA500E6883B /* ALLogAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 777EB5DE22657CA500E6883B /* ALLogAPIManager.m */; };
+		777EB5E72265CA6200E6883B /* NSDictionary+ALSafeRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 777EB5E52265CA6200E6883B /* NSDictionary+ALSafeRead.m */; };
+		777EB5E82265CA6200E6883B /* NSDictionary+ALSafeRead.h in Headers */ = {isa = PBXBuildFile; fileRef = 777EB5E62265CA6200E6883B /* NSDictionary+ALSafeRead.h */; };
 		8615E5ED11BF743977988328CD140E75 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CE85E1EB18AE94164507FF5D433CE6 /* UIButton+AFNetworking.m */; };
 		8BF416B560F346775DBC4F18E5C1AA3B /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D2F00E33B5224A2ABFD1744688638A40 /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D2B73228ED3C7F40DB60A378F0F2D74 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90C6CE6DFFF0E79482EB6BEB9917B9D /* Security.framework */; };
@@ -148,6 +154,12 @@
 		777EB5CA226492E400E6883B /* ALLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLogger.h; sourceTree = "<group>"; };
 		777EB5CB226492E400E6883B /* ALFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALFileLogger.h; sourceTree = "<group>"; };
 		777EB5CC226492E400E6883B /* ALLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLog.m; sourceTree = "<group>"; };
+		777EB5D922656B7100E6883B /* ALBaseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBaseAPIManager.h; sourceTree = "<group>"; };
+		777EB5DA22656B7100E6883B /* ALBaseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALBaseAPIManager.m; sourceTree = "<group>"; };
+		777EB5DD22657CA500E6883B /* ALLogAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALLogAPIManager.h; sourceTree = "<group>"; };
+		777EB5DE22657CA500E6883B /* ALLogAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALLogAPIManager.m; sourceTree = "<group>"; };
+		777EB5E52265CA6200E6883B /* NSDictionary+ALSafeRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ALSafeRead.m"; sourceTree = "<group>"; };
+		777EB5E62265CA6200E6883B /* NSDictionary+ALSafeRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ALSafeRead.h"; sourceTree = "<group>"; };
 		7A9B18551D42A80AE534A1391C815E3B /* Pods-ActiveLog2_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ActiveLog2_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7AD7A9F5902061F94EEC77455DF6D75F /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
 		8909825425F532A9DBD25718257C4990 /* ActiveLog2.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = ActiveLog2.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -404,6 +416,12 @@
 				777EB5C3226492E400E6883B /* ALNativeLogger.m */,
 				777EB5C4226492E400E6883B /* ALNetworkLogger.h */,
 				777EB5C7226492E400E6883B /* ALNetworkLogger.m */,
+				777EB5D922656B7100E6883B /* ALBaseAPIManager.h */,
+				777EB5DA22656B7100E6883B /* ALBaseAPIManager.m */,
+				777EB5DD22657CA500E6883B /* ALLogAPIManager.h */,
+				777EB5DE22657CA500E6883B /* ALLogAPIManager.m */,
+				777EB5E62265CA6200E6883B /* NSDictionary+ALSafeRead.h */,
+				777EB5E52265CA6200E6883B /* NSDictionary+ALSafeRead.m */,
 				2D69FA0C4D4487CF8B09618C519A578B /* Pod */,
 				5E591A8804D66F5CC92BE292624BF85F /* Support Files */,
 			);
@@ -502,12 +520,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				777EB5D4226492E400E6883B /* ALNativeLogger.h in Headers */,
+				777EB5DF22657CA500E6883B /* ALLogAPIManager.h in Headers */,
 				777EB5D7226492E400E6883B /* ALFileLogger.h in Headers */,
 				777EB5D5226492E400E6883B /* ALLogEntity.h in Headers */,
 				777EB5CD226492E400E6883B /* ALLog.h in Headers */,
 				70ED6493FCD3A050B3818F697BCB3065 /* ActiveLog2-umbrella.h in Headers */,
 				777EB5D1226492E400E6883B /* ALLogContants.h in Headers */,
 				777EB5D0226492E400E6883B /* ALNetworkLogger.h in Headers */,
+				777EB5E82265CA6200E6883B /* NSDictionary+ALSafeRead.h in Headers */,
+				777EB5DB22656B7100E6883B /* ALBaseAPIManager.h in Headers */,
 				777EB5D6226492E400E6883B /* ALLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,11 +685,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777EB5E022657CA500E6883B /* ALLogAPIManager.m in Sources */,
 				777EB5CE226492E400E6883B /* ALLogEntity.m in Sources */,
 				777EB5CF226492E400E6883B /* ALNativeLogger.m in Sources */,
 				777EB5D2226492E400E6883B /* ALFileLogger.m in Sources */,
 				777EB5D8226492E400E6883B /* ALLog.m in Sources */,
+				777EB5DC22656B7100E6883B /* ALBaseAPIManager.m in Sources */,
 				777EB5D3226492E400E6883B /* ALNetworkLogger.m in Sources */,
+				777EB5E72265CA6200E6883B /* NSDictionary+ALSafeRead.m in Sources */,
 				D8AC2F5F191EA4411E8EDF3570BE04E3 /* ActiveLog2-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

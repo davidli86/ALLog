@@ -247,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "David Li";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = WPK6X8VFR3;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -487,6 +490,7 @@
 			baseConfigurationReference = 05CF27ABA585DCD4C51EB2CD /* Pods-ActiveLog2_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WPK6X8VFR3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActiveLog2/ActiveLog2-Prefix.pch";
 				INFOPLIST_FILE = "ActiveLog2/ActiveLog2-Info.plist";
@@ -502,6 +506,7 @@
 			baseConfigurationReference = A5593E1145822C4A4E82AE7C /* Pods-ActiveLog2_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WPK6X8VFR3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActiveLog2/ActiveLog2-Prefix.pch";
 				INFOPLIST_FILE = "ActiveLog2/ActiveLog2-Info.plist";

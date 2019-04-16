@@ -20,9 +20,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ALLog : NSObject
 
+@property(nonatomic, assign, readonly) ALLogLevel   logLevel;
+@property(nonatomic, strong, readonly) NSString     *appName;
+@property(nonatomic, strong, readonly) NSString     *deviceId;
+@property(nonatomic, strong, readonly) NSString     *baseUrl;
+
+/**
+ Retry times when failed to get config / upload log. Default is 2.
+ **/
+@property(nonatomic, assign) NSUInteger networkRetryTimes;
+/**
+ Unit is second. Default duration is 5s. Cannot be negative.
+ **/
+@property(nonatomic, assign) float networkRetryDuration;
+
 + (instancetype)shared;
 
-- (void)configWithLogLevel:(ALLogLevel)logLevel;
+- (void)configFromBaseUrl:(NSString *)baseUrl appName:(NSString *)appName deviceId:(NSString *)deviceId;
+- (void)configWithLogLevel:(ALLogLevel)logLevel appName:(NSString *)appName deviceId:(NSString *)deviceId;
+
 - (void)addLogger:(id<ALLogger>)logger;
 - (void)logMessage:(NSString *)message component:(NSString *)component type:(ALLogType)logType function:(NSString *)function;
 
