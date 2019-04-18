@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <ALLogEntity.h>
+#import "ALLogEntity.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSString   *logLevel;
 @property(nonatomic, strong) NSString   *logMessage;
 @property(nonatomic, strong) NSString   *logComponent;
-@property(nonatomic, strong) NSDate     *logTime;
+@property(nonatomic, strong) NSString   *logTime;
 
 - (NSDictionary *)toJsonDictionary;
 

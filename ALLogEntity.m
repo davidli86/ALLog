@@ -11,7 +11,6 @@ static NSString * const kLogLevel = @"logLevel";
 static NSString * const kLogMessage = @"logMessage";
 static NSString * const kLogComponent = @"logComponent";
 static NSString * const kLogTime = @"logTime";
-static NSString * const kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
 @implementation ALLogEntity
 
@@ -38,11 +37,7 @@ static NSString * const kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
                                  self.logLevel, kLogLevel,
                                  self.logMessage, kLogMessage,
                                  self.logComponent, kLogComponent,
-                                 nil];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = kDateFormat;
-    NSString *dateString = [dateFormatter stringFromDate:self.logTime];
-    [json setObject:dateString forKey:kDateFormat];
+                                 self.logTime, kLogTime, nil];
     return json;
 }
 

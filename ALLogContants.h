@@ -72,4 +72,9 @@ static NSString * const kALLogLevelInfoConst    = @"INFO";
  */
 static NSString * const kDefaultLogComponent    = @"IOS";
 
+/**
+ * Log time format
+ **/
+static NSString * const kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+
 #endif /* ALLogContants_h */

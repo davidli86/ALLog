@@ -6,7 +6,6 @@
 //
 
 #import "ALBaseAPIManager.h"
-#import "ALLogEntity.h"
 #import "ALLogContants.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void)logAPIManager:(ALLogAPIManager *)apiManager didGetLogLevel:(ALLogLevel)logLevel withError:(nullable NSError *)error;
-- (void)logAPIManager:(ALLogAPIManager *)apiManager didUploadLog:(BOOL)success withError:(nullable NSError *)error;
+- (void)logAPIManager:(ALLogAPIManager *)apiManager didUploadJsonLogs:(BOOL)success configDisabled:(BOOL)disabled withError:(nullable NSError *)error;
 
 @end
 
@@ -28,9 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (ALAPIRequestId)requestLogLevelWithAppName:(NSString *)appName
                                     deviceId:(NSString *)deviceId;
 
-- (ALAPIRequestId)uploadLogEntities:(NSArray<ALLogEntity *> *)logEntities
-                        withAppName:(NSString *)appName
-                           deviceId:(NSString *)deviceId;
+- (ALAPIRequestId)uploadJsonLogs:(NSArray *)jsonLogs
+                    withAppName:(NSString *)appName
+                        deviceId:(NSString *)deviceId;
 
 @end
 

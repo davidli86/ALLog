@@ -14,6 +14,7 @@ static ALLog *_instance;
     NSMutableArray *_loggers;
     ALLogAPIManager *_apiManager;
     NSUInteger _remainNetworkRetryTimes;
+    NSDateFormatter *_dateFormatter;
 }
 
 @end
@@ -34,6 +35,8 @@ static ALLog *_instance;
         _networkRetryTimes = 2;
         _remainNetworkRetryTimes = _networkRetryTimes;
         _networkRetryDuration = 5.0;
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        _dateFormatter.dateFormat = kDateFormat;
     }
     return self;
 }
@@ -93,7 +96,7 @@ static ALLog *_instance;
     entity.logMessage = [NSString stringWithFormat:@"%@ %@", message, function];
     entity.logComponent = component;
     entity.logLevel = logTypeString;
-    entity.logTime = [NSDate date];
+    entity.logTime = [_dateFormatter stringFromDate:[NSDate date]];
     
     for (id<ALLogger> logger in _loggers) {
         [logger writeLogEntity:entity];
