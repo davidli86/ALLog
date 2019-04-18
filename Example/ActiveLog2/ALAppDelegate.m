@@ -7,12 +7,22 @@
 //
 
 #import "ALAppDelegate.h"
+#import "ALLog.h"
+#import "ALNativeLogger.h"
+#import "ALNetworkLogger.h"
+
+#define kTestBaseUrl @"https://awmobile-vip.reg.aw.dev.activenetwork.com"
+#define kTestDeviceId @"iOS_test_device_id_1"
+#define kTestAppName @"MEETMOBILE"
 
 @implementation ALAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[ALLog shared] configFromBaseUrl:kTestBaseUrl appName:kTestAppName deviceId:kTestDeviceId];
+    [[ALLog shared] addLogger:[[ALNativeLogger alloc] init]];
+    [[ALLog shared] addLogger:[[ALNetworkLogger alloc] init]];
     return YES;
 }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +20,94 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKm-85-kGu">
+                                <rect key="frame" x="113" y="94" width="149" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="9GU-Lk-z0M"/>
+                                    <constraint firstAttribute="height" constant="30" id="Sjf-CO-C0B"/>
+                                </constraints>
+                                <state key="normal" title="Info Log"/>
+                                <connections>
+                                    <action selector="printInfoLog:" destination="whP-gf-Uak" eventType="touchUpInside" id="b2O-Tf-dCu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qw-K4-tnH">
+                                <rect key="frame" x="113" y="224" width="149" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3S4-mR-Ppb"/>
+                                    <constraint firstAttribute="width" constant="149" id="bcl-1G-Tuj"/>
+                                </constraints>
+                                <state key="normal" title="Warning Log"/>
+                                <connections>
+                                    <action selector="printWarningLog:" destination="whP-gf-Uak" eventType="touchUpInside" id="OEN-a1-ve0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61b-Gs-FoB">
+                                <rect key="frame" x="113" y="274" width="149" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="8pK-NC-NvB"/>
+                                    <constraint firstAttribute="height" constant="30" id="pO3-yr-jVZ"/>
+                                </constraints>
+                                <state key="normal" title="Warning Log * 100"/>
+                                <connections>
+                                    <action selector="printWarningLog100:" destination="whP-gf-Uak" eventType="touchUpInside" id="PnS-Ru-MIy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-p9-357">
+                                <rect key="frame" x="113" y="144" width="149" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bPg-Ex-3dr"/>
+                                    <constraint firstAttribute="width" constant="149" id="n2m-ix-j26"/>
+                                </constraints>
+                                <state key="normal" title="Info Log * 100"/>
+                                <connections>
+                                    <action selector="printInfoLog100:" destination="whP-gf-Uak" eventType="touchUpInside" id="0hk-gG-Ld1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isc-Cn-wa2">
+                                <rect key="frame" x="113" y="404" width="149" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="VR1-vj-hfZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="sVJ-NZ-YIk"/>
+                                </constraints>
+                                <state key="normal" title="Error Log * 100"/>
+                                <connections>
+                                    <action selector="printErrorLog100:" destination="whP-gf-Uak" eventType="touchUpInside" id="2aL-C5-Rsa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcM-N5-XcR">
+                                <rect key="frame" x="113" y="354" width="149" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OdZ-v5-3SF"/>
+                                    <constraint firstAttribute="width" constant="149" id="gZB-1N-eJ1"/>
+                                </constraints>
+                                <state key="normal" title="Error Log"/>
+                                <connections>
+                                    <action selector="printErrorLog:" destination="whP-gf-Uak" eventType="touchUpInside" id="Qgx-Cb-GzJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="61b-Gs-FoB" firstAttribute="top" secondItem="5qw-K4-tnH" secondAttribute="bottom" constant="20" id="1kP-oe-Eoq"/>
+                            <constraint firstItem="5qw-K4-tnH" firstAttribute="top" secondItem="ucs-p9-357" secondAttribute="bottom" constant="50" id="2oV-Xw-zhl"/>
+                            <constraint firstItem="dKm-85-kGu" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="Nap-a1-ElM"/>
+                            <constraint firstItem="isc-Cn-wa2" firstAttribute="top" secondItem="XcM-N5-XcR" secondAttribute="bottom" constant="20" id="U67-hm-Ec0"/>
+                            <constraint firstItem="dKm-85-kGu" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="74" id="UlF-gM-qKG"/>
+                            <constraint firstItem="ucs-p9-357" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="W5w-1r-mfU"/>
+                            <constraint firstItem="5qw-K4-tnH" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="WWp-Oy-U8H"/>
+                            <constraint firstItem="isc-Cn-wa2" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="WXs-oy-qf7"/>
+                            <constraint firstItem="XcM-N5-XcR" firstAttribute="top" secondItem="61b-Gs-FoB" secondAttribute="bottom" constant="50" id="YB1-ei-BQo"/>
+                            <constraint firstItem="61b-Gs-FoB" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="hBW-t4-Es6"/>
+                            <constraint firstItem="XcM-N5-XcR" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="nYg-uc-l54"/>
+                            <constraint firstItem="ucs-p9-357" firstAttribute="top" secondItem="dKm-85-kGu" secondAttribute="bottom" constant="20" id="sx1-WB-mYm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
         </scene>
     </scenes>
 </document>

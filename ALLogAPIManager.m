@@ -54,6 +54,9 @@ static NSString * const kResponseKeyConfigDisabled = @"configDisabled";
 }
 
 - (void)processRequestLogLevelResponse:(NSDictionary *)responseObject {
+#ifdef DEBUG
+    NSLog(@"%@", responseObject);
+#endif
     NSNumber *success = [responseObject safeObjectForKey:kResponseKeySuccess];
     NSNumber *errorCode = [responseObject safeObjectForKey:kResponseKeyErrorCode];
     NSString *errorString = [responseObject safeObjectForKey:kResponseKeyErrorString];
@@ -129,6 +132,9 @@ static NSString * const kResponseKeyConfigDisabled = @"configDisabled";
 }
 
 - (void)processUploadLogEntitiesResponse:(NSDictionary *)responseObject {
+#ifdef DEBUG
+    NSLog(@"%@", responseObject);
+#endif
     NSNumber *success = [responseObject safeObjectForKey:kResponseKeySuccess];
     NSNumber *errorCode = [responseObject safeObjectForKey:kResponseKeyErrorCode];
     NSString *errorString = [responseObject safeObjectForKey:kResponseKeyErrorString];

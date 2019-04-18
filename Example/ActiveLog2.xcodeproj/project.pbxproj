@@ -59,6 +59,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7345F7185334BA2D9EDB3C50 /* ActiveLog2.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ActiveLog2.podspec; path = ../ActiveLog2.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		777EB5E922684CE600E6883B /* ActiveLog2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ActiveLog2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		777EB5EB22684D1A00E6883B /* ActiveLog2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ActiveLog2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B09530C6F9D7B4E77431BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		999CB1D222617119DCD3E029 /* Pods_ActiveLog2_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActiveLog2_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,8 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				777EB5EB22684D1A00E6883B /* ActiveLog2.framework */,
+				777EB5E922684CE600E6883B /* ActiveLog2.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -204,10 +208,10 @@
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "ActiveLog2_Example" */;
 			buildPhases = (
 				32470B8A47C77DC3A2B765FA /* [CP] Check Pods Manifest.lock */,
+				9E96C12E9C3E0B0E508A1210 /* [CP] Embed Pods Frameworks */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				9E96C12E9C3E0B0E508A1210 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);

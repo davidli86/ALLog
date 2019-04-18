@@ -101,7 +101,9 @@ static NSString * const kLogFileDirectoryName = @"active_log_json";
         }
         if (_remainNetworkRetryTimes > 0) {
             _remainNetworkRetryTimes--;
-            [self tryToSendLogs];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([ALLog shared].networkRetryDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self tryToSendLogs];
+            });
         } else {
             // To improve performance, reduce sync times with file.
             // So only write logs to file when fail to upload to server.
