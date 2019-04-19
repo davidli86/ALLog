@@ -123,12 +123,25 @@ static char * const kWriteLogQueuqFlag = "al_network_logger_write_log_queue_flag
     didUploadJsonLogs:(BOOL)success
        configDisabled:(BOOL)disabled
             withError:(nullable NSError *)error {
+    
+    // if log config is disabled, then reset log level,
+    // stop upload task and clear all logs.
+    if (disabled) {
+        [[ALLog shared] configWithLogLevel:ALLogLevelOff
+                                   appName:[ALLog shared].appName
+                                  deviceId:[ALLog shared].deviceId];
+        [self deleteAllLogs];
+        _isInSending = NO;
+        return;
+    }
     if (success) {
         [_inSendingBuffer removeObjectsInRange:NSMakeRange(0, _inSendingLogCount)];
         
         // if sending logs are from file, then check if logs in this
         // file finished sending. If so, delete the file.
-        if (_inSendingBuffer == _fileLogSendingBuffer && _inSendingBuffer.count == 0 && _logFilePathInSending != nil) {
+        if (_inSendingBuffer == _fileLogSendingBuffer &&
+            _inSendingBuffer.count == 0 &&
+            _logFilePathInSending != nil) {
             NSError *error = nil;
             [[NSFileManager defaultManager] removeItemAtPath:_logFilePathInSending error:&error];
             if (error) {
@@ -143,7 +156,8 @@ static char * const kWriteLogQueuqFlag = "al_network_logger_write_log_queue_flag
         }
         if (_remainNetworkRetryTimes > 0) {
             _remainNetworkRetryTimes--;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([ALLog shared].networkRetryDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([ALLog shared].networkRetryDuration * NSEC_PER_SEC)),
+                           dispatch_get_main_queue(), ^{
                 self->_isInSending = NO;
                 [self tryToSendLogs];
             });
@@ -230,7 +244,8 @@ static char * const kWriteLogQueuqFlag = "al_network_logger_write_log_queue_flag
     if (error) {
         NSLog(@"%@", error);
     }
-    if ([streamObject isKindOfClass:[NSArray class]]) {
+    if ([streamObject isKindOfClass:[NSArray class]] &&
+        ((NSArray *)streamObject).count > 0) {
         _fileLogSendingBuffer = [NSMutableArray arrayWithArray:(NSArray *)streamObject];
         [self sendLogFromBuffer:_fileLogSendingBuffer];
 #ifdef DEBUG
@@ -389,12 +404,16 @@ static char * const kWriteLogQueuqFlag = "al_network_logger_write_log_queue_flag
     return logDirectory;
 }
 
-- (NSArray *)jsonLogArrayFromLogEntities:(NSArray<ALLogEntity *> *)logEntities{
-    NSMutableArray *jsonLogs = [NSMutableArray arrayWithCapacity:logEntities.count];
-    [logEntities enumerateObjectsUsingBlock:^(ALLogEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [jsonLogs addObject:[obj toJsonDictionary]];
-    }];
-    return jsonLogs;
+- (void)deleteAllLogs {
+    [_apiManager cancelAll];
+    [_logs removeAllObjects];
+    [_memoryLogSendingBuffer removeAllObjects];
+    [_fileLogSendingBuffer removeAllObjects];
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:_logDirectory error:&error];
+    if (error) {
+        NSLog(@"%@", error);
+    }
 }
 
 @end
