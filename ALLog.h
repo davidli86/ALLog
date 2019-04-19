@@ -11,7 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 #define ActiveLogInfo(frmt, ...)    [[ALLog shared] logMessage:[NSString stringWithFormat:frmt, ## __VA_ARGS__] component:kDefaultLogComponent type:ALLogTypeInfo function:[NSString stringWithFormat:@"%s [%d]", __FUNCTION__, __LINE__]]
 
 #define ActiveLogWarn(frmt, ...)    [[ALLog shared] logMessage:[NSString stringWithFormat:frmt, ## __VA_ARGS__] component:kDefaultLogComponent type:ALLogTypeWarning function:[NSString stringWithFormat:@"%s [%d]", __FUNCTION__, __LINE__]]

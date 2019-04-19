@@ -43,7 +43,9 @@ static ALLog *_instance;
 
 - (void)configFromBaseUrl:(NSString *)baseUrl appName:(NSString *)appName deviceId:(NSString *)deviceId {
     if (baseUrl == nil || appName == nil || deviceId == nil) {
+#ifdef DEBUG
         NSLog(@"Active Log Config Error: parameter shouldn't be nil!");
+#endif
         return;
     }
     _baseUrl = baseUrl;
@@ -56,7 +58,9 @@ static ALLog *_instance;
 
 - (void)configWithLogLevel:(ALLogLevel)logLevel appName:(NSString *)appName deviceId:(NSString *)deviceId{
     if (appName == nil || deviceId == nil) {
+#ifdef DEBUG
         NSLog(@"Active Log Config Error: parameter shouldn't be nil!");
+#endif
         return;
     }
     _logLevel = logLevel;

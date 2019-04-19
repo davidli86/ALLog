@@ -21,7 +21,7 @@
 {
     // Override point for customization after application launch.
     [[ALLog shared] configFromBaseUrl:kTestBaseUrl appName:kTestAppName deviceId:kTestDeviceId];
-    [[ALLog shared] addLogger:[[ALNativeLogger alloc] init]];
+//    [[ALLog shared] addLogger:[[ALNativeLogger alloc] init]];
     [[ALLog shared] addLogger:[[ALNetworkLogger alloc] init]];
     return YES;
 }

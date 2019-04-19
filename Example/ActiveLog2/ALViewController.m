@@ -12,6 +12,7 @@
 @interface ALViewController () {
     NSUInteger _logIndex;
 }
+@property (weak, nonatomic) IBOutlet UITextView *logTextView;
 
 @end
 
@@ -20,36 +21,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *string = [[NSUUID UUID] UUIDString];
+    _logTextView.text = [NSString stringWithFormat:@"%@, this is a random test log, you can modify it.", string];
     _logIndex = 0;
 }
 
 - (IBAction)printInfoLog:(id)sender {
-    ActiveLogInfo(@"INFO: active log test: %lu", (unsigned long)++_logIndex);
+    ActiveLogInfo(@"INFO_%lu, %@", (unsigned long)++_logIndex, _logTextView.text);
 }
 
 - (IBAction)printInfoLog100:(id)sender {
     for (int i = 0; i < 100; i++) {
-        ActiveLogInfo(@"INFO: active log test: %d", ++_logIndex);
+        ActiveLogInfo(@"INFO_%lu, %@", (unsigned long)++_logIndex, _logTextView.text);
     }
 }
 
 - (IBAction)printWarningLog:(id)sender {
-    ActiveLogWarn(@"WARN: active log test: %d", ++_logIndex);
+    ActiveLogWarn(@"WARN_%lu, %@", (unsigned long)++_logIndex, _logTextView.text);
 }
 
 - (IBAction)printWarningLog100:(id)sender {
     for (int i = 0; i < 100; i++) {
-        ActiveLogWarn(@"WARN: active log test: %d", ++_logIndex);
+        ActiveLogWarn(@"WARN_%lu, %@", (unsigned long)++_logIndex, _logTextView.text);
     }
 }
 
 - (IBAction)printErrorLog:(id)sender {
-    ActiveLogError(@"ERROR: active log test: %d", ++_logIndex);
+    ActiveLogError(@"ERROR_%lu, %@", (unsigned long)++_logIndex, _logTextView.text);
 }
 
 - (IBAction)printErrorLog100:(id)sender {
     for (int i = 0; i < 100; i++) {
-        ActiveLogError(@"ERROR: active log test: %d", ++_logIndex);
+        ActiveLogError(@"ERROR_%lu, %@", (unsigned long)++_logIndex, _logTextView.text);
     }
 }
 

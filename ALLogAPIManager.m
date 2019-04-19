@@ -117,6 +117,9 @@ static NSString * const kResponseKeyConfigDisabled = @"configDisabled";
                                 deviceId, kParameterKeyDeviceId,
                                 jsonLogs, kParameterKeyLogs,
                                 nil];
+#ifdef DEBUG
+    NSLog(@"uploadJsonLogs with number: %lu", (unsigned long)jsonLogs.count);
+#endif
     ALAPIRequestId requestId = [self POST:kUrlComponentUploadLogEntities
                                parameters:parameters
                                  progress:nil
