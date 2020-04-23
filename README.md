@@ -22,7 +22,7 @@ pod 'ActiveLog2'
 
 ## Author
 
-David Li, david.li@activenetwork.com
+David, 492334421@qq.com
 
 ## License
 
