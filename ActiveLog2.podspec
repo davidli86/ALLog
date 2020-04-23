@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'ActiveLog2'
+  s.name             = 'ALLog'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ActiveLog2.'
+  s.summary          = 'A short description of ALLog.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://gitlab.dev.activenetwork.com/activeMobile/ActiveLog2'
+  s.homepage         = 'https://github.com/davidli86/ALLog'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'David Li' => 'david.li@activenetwork.com' }
-  s.source           = { :git => 'git@gitlab.dev.activenetwork.com:activeMobile/ActiveLog2.git', :tag => s.version.to_s }
+  s.author           = { 'David Li' => '492334421@qq.com' }
+  s.source           = { :git => 'git@github.com:davidli86/ALLog.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
